@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>Cost control</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <h1 class="title">Учет расходов</h1>
+            <div class="input">
+                <input 
+                    type="number" 
+                    class="js-input__sum input__sum" 
+                    name="input__sum" 
+                    placeholder="Введите сумму"
+                >
+                <input 
+                    type="button" 
+                    class="js-input__btn input__btn" 
+                    name="input__btn" 
+                    value="Добавить"
+                >
+            </div>
+            <div class="data">
+                <div class="leftside">
+                    <div class="limit">
+                        <span class="limit__title">Лимит: </span>
+                        <span class="js-limit__value limit__value"></span>
+                    </div>
+                    <div class="total">
+                        <span class="total__title">Всего: </span>
+                        <span class="js-total__value total__value"></span>
+                    </div>
+                    <div class="status">
+                        <span class="status__title">Статус: </span>
+                        <span class="js-status__value status__value green">Все хорошо</span>
+                    </div>
+                </div>
+                <div class="rightside">
+                    <div class="history">
+                        <div class="history__title">История:</div>
+                        <ol class="js-history__list history__list"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/index.js"></script>
+</html>

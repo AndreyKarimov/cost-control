@@ -1,0 +1,109 @@
+@import url(/styles/reset.css);
+
+body {
+    font-family: 'Inter';
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 67px 50px;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 41px;
+    align-items: flex-start;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+    column-gap: 28px;
+}
+
+.input__sum {
+    width: 484px;
+    padding: 0 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #000000;
+    font-size: 32px;
+    line-height: 39px;
+    box-sizing: border-box;
+}
+.input__btn {
+    width: 370px;
+    background: #0094FF;
+    font-size: 32px;
+    line-height: 58px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.input__btn:active {
+    color: yellow;
+}
+
+.data {
+    display: flex;
+    flex-direction: row;
+    column-gap: 28px;
+}
+.leftside {
+    width: 484px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    align-items: flex-start;
+}
+.limit {
+    margin-top: 10px;
+}
+.limit__title, .total__title,  .status__title, .history__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+}
+.limit__value, .total__value, .status__value {
+    font-size: 32px;
+    line-height: 39px;
+}
+.total {}
+.status {
+    margin-top: 22px;
+}
+
+.green {
+    color: #039100;
+}
+.red {
+    color: #FC0000;
+}
+.rightside {
+
+}
+.history {
+    display: flex;
+    flex-direction: column;
+    row-gap: 21px;
+    align-items: flex-start;
+}
+.history__list {
+    display: flex;
+    flex-direction: column;
+    margin-left: 35px;
+    align-items: flex-start;
+}
+.history__item {
+    font-size: 32px;
+    line-height: 39px;
+}
