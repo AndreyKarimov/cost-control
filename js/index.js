@@ -2,9 +2,6 @@ const CURRENCY = 'руб.';
 const STATUS_IN_LIMIT = `Все хорошо`;
 const STATUS_OUT_OF_LIMIT = `Все плохо`;
 
-
-
-
 const inputNode = document.querySelector('.js-input__sum');
 const buttonNode = document.querySelector('.js-input__btn');
 const historyNode = document.querySelector('.js-history__list')
@@ -17,6 +14,7 @@ const costs = [];
 const limit = 20000;
 let sum = 0;
 
+
 init();
 function init() {
     limitNode.innerHTML = `${limit} ${CURRENCY}`;
@@ -24,19 +22,15 @@ function init() {
     totalNode.innerHTML = `${sum} ${CURRENCY}`
 }
 
+costsAdd(costs);
+
 buttonNode.addEventListener('click', function() {
-    // append costs
-    if (!inputNode.value) {
-        return;
-    }
-    const transactionValue = parseInt(inputNode.value);
-    costs.push(transactionValue);
-    inputNode.value = '';
+    costsAdd(costs);
 
     // history list output + count sum 
     let elemListHTML = '';
+    let sum = 0;
     
-
     costs.forEach(elem => {
         elemListHTML += `<li class="history__item">${elem} ${CURRENCY}</li> `;
         sum += elem;
@@ -53,3 +47,13 @@ buttonNode.addEventListener('click', function() {
     totalNode.innerHTML = `${sum} ${CURRENCY}`;
     
 })
+
+function costsAdd(costs) { 
+    // add values in costs
+        if (!inputNode.value) {
+            return;
+        }
+        const transactionValue = parseInt(inputNode.value);
+        costs.push(transactionValue);
+        inputNode.value = '';
+}
