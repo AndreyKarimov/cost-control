@@ -49,7 +49,7 @@ body {
     cursor: pointer;
 }
 
-.input__btn:active {
+.input__btn:active, .reset-btn:active {
     color: yellow;
 }
 
