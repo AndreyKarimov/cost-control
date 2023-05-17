@@ -10,28 +10,43 @@ body {
     padding: 67px 50px;
     text-align: center;
 }
-
-.main {
-    display: flex;
-    flex-direction: column;
-    gap: 41px;
-    align-items: flex-start;
-}
-
 .title {
     font-weight: 700;
     font-size: 32px;
     line-height: 39px;
 }
 
-.input {
+.main {
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
-    column-gap: 28px;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.leftside {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    align-items: flex-start;
+}
+
+.rightside {
+    min-width: 300px;
+}
+
+
+
+.input {
+    display: flex;
+    flex-direction: column;
+    row-gap: 28px;
 }
 
 .input__sum {
-    width: 484px;
+    width: 100%;
     padding: 0 10px;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid #000000;
@@ -39,8 +54,21 @@ body {
     line-height: 39px;
     box-sizing: border-box;
 }
-.input__btn {
-    width: 370px;
+
+.input__category {
+    padding-left: 10px;
+    width: 100%;
+    font-size: 32px;
+    line-height: 39px;
+}
+
+.input__category-item--grey {
+    opacity: 0.5;
+    color: gray;
+}
+
+.input__btn, .reset-btn {
+    width: 100%;
     background: #0094FF;
     font-size: 32px;
     line-height: 58px;
@@ -49,22 +77,21 @@ body {
     cursor: pointer;
 }
 
+.reset-btn {
+    background:#FC0000;
+}
+
 .input__btn:active, .reset-btn:active {
     color: yellow;
 }
 
 .data {
     display: flex;
-    flex-direction: row;
-    column-gap: 28px;
-}
-.leftside {
-    width: 484px;
-    display: flex;
     flex-direction: column;
-    gap: 13px;
+    row-gap: 28px;
     align-items: flex-start;
 }
+
 .limit {
     margin-top: 10px;
 }
@@ -79,7 +106,7 @@ body {
 }
 .total {}
 .status {
-    margin-top: 22px;
+    margin-top: 10px;
 }
 
 .green {
@@ -88,9 +115,7 @@ body {
 .red {
     color: #FC0000;
 }
-.rightside {
 
-}
 .history {
     display: flex;
     flex-direction: column;
@@ -108,13 +133,3 @@ body {
     line-height: 39px;
 }
 
-.reset-btn {
-    margin-top: 99px;
-    width: 100%;
-    background: #FC0000;
-    font-size: 32px;
-    line-height: 58px;
-    color: #FFFFFF;
-    border: none;
-    cursor: pointer;
-}

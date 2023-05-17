@@ -1,3 +1,7 @@
 {
-  "recommendations": ["prograhammer.tslint-vue"]
+  "recommendations": [
+    "ms-vscode.vscode-typescript-next",
+    "funkyremi.vscode-google-translate",
+    "esbenp.prettier-vscode"
+  ]
 }
