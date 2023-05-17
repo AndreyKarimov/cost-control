@@ -17,37 +17,26 @@ body {
 }
 
 .main {
-    margin-top: 50px;
+    width: 450px;
+    margin: 50px auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 40px;
     align-items: flex-start;
     justify-content: center;
 }
 
-.leftside {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-    align-items: flex-start;
-}
-
-.rightside {
-    min-width: 300px;
-}
-
-
-
 .input {
     display: flex;
     flex-direction: column;
-    row-gap: 28px;
+    row-gap: 10px;
+    align-items: flex-start;
 }
 
 .input__sum {
     width: 100%;
     padding: 0 10px;
+    margin-bottom: 20px;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid #000000;
     font-size: 32px;
@@ -56,25 +45,26 @@ body {
 }
 
 .input__category {
+    margin-bottom: 20px;
     padding-left: 10px;
     width: 100%;
-    font-size: 32px;
-    line-height: 39px;
+    font-size: 24px;
+    line-height: 32px;
 }
 
-.input__category-item--grey {
-    opacity: 0.5;
-    color: gray;
+.input__foolProof {
+    margin-bottom: 20px;
 }
 
 .input__btn, .reset-btn {
     width: 100%;
     background: #0094FF;
     font-size: 32px;
-    line-height: 58px;
+    line-height: 48px;
     color: #FFFFFF;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .reset-btn {
@@ -97,12 +87,12 @@ body {
 }
 .limit__title, .total__title,  .status__title, .history__title {
     font-weight: 700;
-    font-size: 32px;
-    line-height: 39px;
+    font-size: 24px;
+    line-height: 32px;
 }
 .limit__value, .total__value, .status__value {
-    font-size: 32px;
-    line-height: 39px;
+    font-size: 24px;
+    line-height: 32px;
 }
 .total {}
 .status {
@@ -129,7 +119,11 @@ body {
     align-items: flex-start;
 }
 .history__item {
-    font-size: 32px;
-    line-height: 39px;
+    font-size: 20px;
+    line-height: 24px;
 }
 
+.border-red {
+    border: 1px solid red;
+    transition: border 0.2s ease-in-out;
+}

@@ -2,6 +2,7 @@ const LIMIT = 20000;
 const CURRENCY = "руб.";
 const STATUS_IN_LIMIT = `Все хорошо`;
 const STATUS_OUT_OF_LIMIT = `Все плохо`;
+const FOOL_PROOF = "Заполните обязательные поля";
 const costCategory = [
   "Траты на жизнь",
   "Здоровье",
@@ -10,7 +11,7 @@ const costCategory = [
   "Спорт",
   "Досуг",
   "Вред (табак, алкоголь и т.д.)",
-  "Гос.поборы (налоги, штрафы и т.п.",
+  "Гос.поборы (налоги, штрафы)",
 ];
 
 const inputNode = document.querySelector(".js-input__sum");
@@ -21,8 +22,11 @@ const statusNode = document.querySelector(".js-status__value");
 const limitNode = document.querySelector(".js-limit__value");
 const resetButtonNode = document.getElementById("js-reset-btn");
 const categoryNode = document.getElementById("js-category");
+const foolProofNode = document.getElementById("foolProof");
 
 const RED_CLASS_NAME = "red";
+const BORDER_RED = "border-red";
+const FOOL_PROOF_CLASS = "input__foolProof";
 
 let costs = [];
 let sum = 0;
@@ -49,12 +53,32 @@ function init() {
 
 function costsAdd(costs) {
   // add values in costs
+  foolProof = 0;
   if (!inputNode.value) {
-    return;
+    inputNode.classList.add(BORDER_RED);
+    foolProof += 1;
+  } else {
+    inputNode.classList.remove(BORDER_RED);
   }
-  const transactionValue = parseInt(inputNode.value);
-  costs.push(transactionValue);
+  if (!costCategory.includes(categoryNode.value)) {
+    categoryNode.classList.add(BORDER_RED);
+    foolProof += 1;
+  } else {
+    categoryNode.classList.remove(BORDER_RED);
+  }
+  if (foolProof > 0) {
+    foolProofNode.innerHTML = FOOL_PROOF;
+    foolProofNode.classList.add(RED_CLASS_NAME);
+    return;
+  } else {
+    foolProofNode.innerHTML = ``;
+    foolProofNode.classList.remove(RED_CLASS_NAME);
+  }
+  inputNode.classList.remove(BORDER_RED);
+  categoryNode.classList.remove(BORDER_RED);
+  costs.push([parseInt(inputNode.value), categoryNode.value]);
   inputNode.value = "";
+  categoryNode.value = 0;
 }
 
 function resetCosts(costs) {
@@ -65,7 +89,7 @@ function resetCosts(costs) {
 function getSum(costs) {
   sum = 0;
   costs.forEach((element) => {
-    sum += element;
+    sum += element[0];
   });
   return sum;
 }
@@ -73,13 +97,13 @@ function getSum(costs) {
 function renderHistory(costs) {
   let elemListHTML = "";
   costs.forEach((element) => {
-    elemListHTML += `<li class="history__item">${element} ${CURRENCY}</li> `;
+    elemListHTML += `<li class="history__item">${element[0]} ${CURRENCY} - ${element[1]}</li> `;
   });
   return elemListHTML;
 }
 
 function renderPage(costs) {
-  totalNode.innerHTML = getSum(costs);
+  totalNode.innerHTML = `${getSum(costs)} ${CURRENCY}`;
   historyNode.innerHTML = renderHistory(costs);
   renderStatus(costs);
 }
@@ -98,9 +122,9 @@ function renderStatus(costs) {
 }
 
 function renderCategory() {
-  let costCategoryList = `<option class="input__category-item--grey">- Выберите категорию</option>`;
+  let costCategoryList = `<option></option>`;
   costCategory.forEach((elem, index) => {
-    costCategoryList += `<option value="${index}">${elem}</option>`;
+    costCategoryList += `<option>${elem}</option>`;
   });
   return costCategoryList;
 }

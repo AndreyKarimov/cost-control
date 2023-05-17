@@ -14,57 +14,57 @@
     <div class="container">
         <h1 class="title">Учет расходов</h1>
         <div class="main">
-            <div class="leftside">
-                <div class="input">
-                    <input 
-                        type="number" 
-                        class="js-input__sum input__sum" 
-                        name="input__sum" 
-                        placeholder="Введите сумму"
-                    >
-                    <select id="js-category" class="input__category" placeholder="Выберите категорию">
-                        <!-- <option value="0"></option>
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
-                        <option value="4"></option>
-                        <option value="5"></option>
-                        <option value="6"></option>
-                        <option value="7"></option> -->
-                    </select>
-                    <input name="input__btn" 
-                        type="button" 
-                        class="js-input__btn input__btn" 
-                        value="Добавить"
-                    >
-                    <input name="reset-btn"
-                        type="button" 
-                        class="reset-btn" 
-                        id = "js-reset-btn"
-                        value="Сбросить расходы"
-                    >
-                </div>
-                <div class="data">
-                        <div class="limit">
-                            <span class="limit__title">Лимит: </span>
-                            <span class="js-limit__value limit__value"></span>
-                        </div>
-                        <div class="total">
-                            <span class="total__title">Всего: </span>
-                            <span class="js-total__value total__value"></span>
-                        </div>
-                        <div class="status">
-                            <span class="status__title">Статус: </span>
-                            <span class="js-status__value status__value green"></span>
-                        </div>
-                </div>
+            <div class="input">
+                <span>Введите сумму:</span>
+                <input 
+                    type="number" 
+                    class="js-input__sum input__sum" 
+                    name="input__sum" 
+                >
+                <span>Введите категорию:</span>
+                <select id="js-category" class="input__category">
+                    <!-- <option value="0"></option>
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                    <option value="6"></option>
+                    <option value="7"></option> -->
+                </select>
+                <div id="foolProof" class="input__foolProof"></div>
+                <input name="input__btn" 
+                    type="button" 
+                    class="js-input__btn input__btn" 
+                    value="Добавить"
+                >
+                <input name="reset-btn"
+                    type="button" 
+                    class="reset-btn" 
+                    id = "js-reset-btn"
+                    value="Сбросить расходы"
+                >
             </div>
-            <div class="rightside">
-                <div class="history">
-                    <div class="history__title">История:</div>
-                    <ol class="js-history__list history__list"></ol>
-                </div>
+            <div class="data">
+                    <div class="limit">
+                        <span class="limit__title">Лимит: </span>
+                        <span class="js-limit__value limit__value"></span>
+                    </div>
+                    <div class="total">
+                        <span class="total__title">Всего: </span>
+                        <span class="js-total__value total__value"></span>
+                    </div>
+                    <div class="status">
+                        <span class="status__title">Статус: </span>
+                        <span class="js-status__value status__value green"></span>
+                    </div>
             </div>
+
+            <div class="history">
+                <div class="history__title">История:</div>
+                <ol class="js-history__list history__list"></ol>
+            </div>
+
         </div>
     </div>
 
