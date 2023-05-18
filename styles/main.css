@@ -1,5 +1,5 @@
 @import url(/styles/reset.css);
-
+@import url(/styles/popup-edit-limit.css);
 body {
     font-family: 'Inter';
 }
@@ -25,8 +25,15 @@ body {
     align-items: flex-start;
     justify-content: center;
 }
+.rub:after {
+    content: " руб.";
+    position: absolute;
+    right: 5px;
+    top:3px;
+}
 
 .input {
+    width: 100%;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -35,22 +42,46 @@ body {
 
 .input__sum {
     width: 100%;
-    padding: 0 10px;
+    position: relative;
+    padding: 5px 20px 5px 10px;
     margin-bottom: 20px;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid #000000;
-    font-size: 32px;
-    line-height: 39px;
+    font-size: 24px;
+    line-height: 32px;
     box-sizing: border-box;
+    text-align: left;
 }
 
 .input__category {
     margin-bottom: 20px;
-    padding-left: 10px;
+    padding: 5px 20px 5px 10px;
     width: 100%;
     font-size: 24px;
     line-height: 32px;
+    border: 1px solid #000000;
+    text-align: left;
 }
+
+.input__categoryInput {
+    width: 100%;
+    border: none;
+    font-size: inherit;
+}
+
+.input__sumInput {
+    width: calc(100% - 45px);
+    border: none;
+    font-size: inherit;
+}
+
+.input__categoryInput:focus-visible, 
+.limit__change-btn--input:focus-visible,
+.input__sumInput:focus-visible {
+    border: none;
+    outline: none;
+}
+
 
 .input__foolProof {
     margin-bottom: 20px;
@@ -76,27 +107,65 @@ body {
 }
 
 .data {
+    width: 100%;
     display: flex;
     flex-direction: column;
     row-gap: 28px;
     align-items: flex-start;
 }
 
-.limit {
+.limit, .total, .status {
     margin-top: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    column-gap: 10px;
 }
 .limit__title, .total__title,  .status__title, .history__title {
     font-weight: 700;
     font-size: 24px;
     line-height: 32px;
 }
-.limit__value, .total__value, .status__value {
+.limit__value, .total__value, .status__value, .limit_value-change {
+    padding-left: 5px;
     font-size: 24px;
-    line-height: 32px;
+    line-height: 28px;
 }
-.total {}
-.status {
-    margin-top: 10px;
+.limit__value {
+    width: 150px;
+    display: inline-block;
+    text-align: left;
+
+    display: none;
+}
+
+.limit_value-change {
+    /* display: none; */
+    width: 150px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    text-align: left;
+    border: 1px solid black;
+}
+.limit__change-btn--input {
+    width: 100%;
+    border: none;
+    font-size: inherit;
+}
+
+.limit__change-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    background-image: url(../resourses/changeLimit-btn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: unset;
+    cursor: pointer;
+}
+.limit__change-btn:active {
+    transform: rotate(45deg);
+    transition: transform 0.01s ease-in;
 }
 
 .green {

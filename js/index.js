@@ -14,14 +14,16 @@ const costCategory = [
   "Гос.поборы (налоги, штрафы)",
 ];
 
-const inputNode = document.querySelector(".js-input__sum");
+const inputNode = document.getElementById("js-input__sumInput");
+const inputRedNode = document.getElementById("js-input__sum");
 const buttonNode = document.querySelector(".js-input__btn");
 const historyNode = document.querySelector(".js-history__list");
 const totalNode = document.querySelector(".js-total__value");
 const statusNode = document.querySelector(".js-status__value");
 const limitNode = document.querySelector(".js-limit__value");
 const resetButtonNode = document.getElementById("js-reset-btn");
-const categoryNode = document.getElementById("js-category");
+const categoryNode = document.getElementById("js-categoryInput");
+const categoryRedNode = document.getElementById("js-category");
 const foolProofNode = document.getElementById("foolProof");
 
 const RED_CLASS_NAME = "red";
@@ -55,16 +57,16 @@ function costsAdd(costs) {
   // add values in costs
   foolProof = 0;
   if (!inputNode.value) {
-    inputNode.classList.add(BORDER_RED);
+    inputRedNode.classList.add(BORDER_RED);
     foolProof += 1;
   } else {
-    inputNode.classList.remove(BORDER_RED);
+    inputRedNode.classList.remove(BORDER_RED);
   }
   if (!costCategory.includes(categoryNode.value)) {
-    categoryNode.classList.add(BORDER_RED);
+    categoryRedNode.classList.add(BORDER_RED);
     foolProof += 1;
   } else {
-    categoryNode.classList.remove(BORDER_RED);
+    categoryRedNode.classList.remove(BORDER_RED);
   }
   if (foolProof > 0) {
     foolProofNode.innerHTML = FOOL_PROOF;

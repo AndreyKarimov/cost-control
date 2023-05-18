@@ -16,22 +16,18 @@
         <div class="main">
             <div class="input">
                 <span>Введите сумму:</span>
-                <input 
-                    type="number" 
-                    class="js-input__sum input__sum" 
-                    name="input__sum" 
-                >
+                <div class="input__sum rub" id="js-input__sum">
+                    <input
+                        type="number"
+                        id="js-input__sumInput"
+                        name="input__sum"
+                        class="input__sumInput"
+                    >
+                </div>
                 <span>Введите категорию:</span>
-                <select id="js-category" class="input__category">
-                    <!-- <option value="0"></option>
-                    <option value="1"></option>
-                    <option value="2"></option>
-                    <option value="3"></option>
-                    <option value="4"></option>
-                    <option value="5"></option>
-                    <option value="6"></option>
-                    <option value="7"></option> -->
-                </select>
+                <div class="input__category" id="js-category">
+                    <select id="js-categoryInput" class="input__categoryInput"></select>
+                </div>
                 <div id="foolProof" class="input__foolProof"></div>
                 <input name="input__btn" 
                     type="button" 
@@ -46,26 +42,27 @@
                 >
             </div>
             <div class="data">
-                    <div class="limit">
-                        <span class="limit__title">Лимит: </span>
-                        <span class="js-limit__value limit__value"></span>
+                <div class="limit">
+                    <div class="limit__title">Лимит: </div>
+                    <div class="js-limit__value limit__value"></div>
+                    <div class="limit_value-change">
+                        <input type="number" id="js-limit_value-change" class="limit__change-btn--input">
                     </div>
-                    <div class="total">
-                        <span class="total__title">Всего: </span>
-                        <span class="js-total__value total__value"></span>
-                    </div>
-                    <div class="status">
-                        <span class="status__title">Статус: </span>
-                        <span class="js-status__value status__value green"></span>
-                    </div>
+                    <button id="js-limit__change-btn" class="limit__change-btn"></button> 
+                </div>
+                <div class="total">
+                    <div class="total__title">Всего: </div>
+                    <div class="js-total__value total__value"></div>
+                </div>
+                <div class="status">
+                    <div class="status__title">Статус: </div>
+                    <div class="js-status__value status__value green"></div>
+                </div>
+                <div class="history">
+                    <div class="history__title">История:</div>
+                    <ol class="js-history__list history__list"></ol>
+                </div>
             </div>
-
-            <div class="history">
-                <div class="history__title">История:</div>
-                <ol class="js-history__list history__list"></ol>
-            </div>
-
-        </div>
     </div>
 
 </body>
