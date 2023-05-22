@@ -61,6 +61,7 @@ body {
     line-height: 32px;
     border: 1px solid #000000;
     text-align: left;
+    box-sizing: border-box;
 }
 
 .input__categoryInput {
@@ -118,6 +119,7 @@ body {
     margin-top: 10px;
     display: flex;
     flex-wrap: nowrap;
+    align-items: flex-end;
     column-gap: 10px;
     height: 32px;
 }
@@ -201,10 +203,11 @@ body {
     align-items: flex-start;
 }
 .history__list {
+    padding-left: 0;
     display: flex;
     flex-direction: column;
-    margin-left: 35px;
     align-items: flex-start;
+    list-style-position: inside;
 }
 .history__item {
     font-size: 20px;
