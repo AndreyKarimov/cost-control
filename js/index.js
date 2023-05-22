@@ -147,7 +147,7 @@ function renderStatus(costs) {
 }
 
 function renderCategory() {
-  let costCategoryList = `<option></option>`;
+  let costCategoryList = `<option hidden disabled selected></option>`;
   costCategory.forEach((elem, index) => {
     costCategoryList += `<option>${elem}</option>`;
   });
