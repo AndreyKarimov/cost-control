@@ -20,18 +20,27 @@ const buttonNode = document.querySelector(".js-input__btn");
 const historyNode = document.querySelector(".js-history__list");
 const totalNode = document.querySelector(".js-total__value");
 const statusNode = document.querySelector(".js-status__value");
-const limitNode = document.querySelector(".js-limit__value");
+const limitNode = document.getElementById("js-limit__value");
 const resetButtonNode = document.getElementById("js-reset-btn");
 const categoryNode = document.getElementById("js-categoryInput");
 const categoryRedNode = document.getElementById("js-category");
 const foolProofNode = document.getElementById("foolProof");
+const limitEditBtnNode = document.getElementById("js-limit__edit-btn");
+const limitConfirmBtnNode = document.getElementById("js-limit__confirm-btn");
+const limitCancelBtnNode = document.getElementById("js-limit__cancel-btn");
+const inputLimitNode = document.getElementById("js-limit_value-change");
+const inputLimitWrapper = document.getElementById(
+  "js-limit_value-change-wrapper"
+);
 
 const RED_CLASS_NAME = "red";
 const BORDER_RED = "border-red";
 const FOOL_PROOF_CLASS = "input__foolProof";
+const DISPLAY_NONE = "displayNone";
 
 let costs = [];
 let sum = 0;
+let limit = LIMIT;
 statusNode.innerHTML = STATUS_IN_LIMIT;
 
 init();
@@ -46,10 +55,24 @@ resetButtonNode.addEventListener("click", function () {
   renderPage(costs);
 });
 
+limitEditBtnNode.addEventListener("click", changeLimitView);
+
+limitConfirmBtnNode.addEventListener("click", function () {
+  setLimit(inputLimitNode.value);
+  changeLimitView();
+  init();
+});
+
+limitCancelBtnNode.addEventListener("click", function () {
+  changeLimitView();
+  init();
+});
+
 function init() {
-  limitNode.innerHTML = `${LIMIT} ${CURRENCY}`;
-  statusNode.innerText = STATUS_IN_LIMIT;
+  limitNode.innerHTML = `${limit} ${CURRENCY}`;
+  renderStatus(costs);
   totalNode.innerHTML = `${sum} ${CURRENCY}`;
+  inputLimitNode.value = limit;
   categoryNode.innerHTML = renderCategory();
 }
 
@@ -112,9 +135,9 @@ function renderPage(costs) {
 
 function renderStatus(costs) {
   sum = getSum(costs);
-  if (sum > LIMIT) {
+  if (sum > limit) {
     statusNode.innerHTML = `${STATUS_OUT_OF_LIMIT} (${
-      LIMIT - sum
+      limit - sum
     } ${CURRENCY})`;
     statusNode.classList.add(RED_CLASS_NAME);
   } else {
@@ -129,4 +152,16 @@ function renderCategory() {
     costCategoryList += `<option>${elem}</option>`;
   });
   return costCategoryList;
+}
+
+function changeLimitView() {
+  limitNode.classList.toggle(DISPLAY_NONE);
+  limitEditBtnNode.classList.toggle(DISPLAY_NONE);
+  inputLimitWrapper.classList.toggle(DISPLAY_NONE);
+  limitCancelBtnNode.classList.toggle(DISPLAY_NONE);
+  limitConfirmBtnNode.classList.toggle(DISPLAY_NONE);
+}
+
+function setLimit(newLimit) {
+  limit = newLimit;
 }

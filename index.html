@@ -44,11 +44,13 @@
             <div class="data">
                 <div class="limit">
                     <div class="limit__title">Лимит: </div>
-                    <div class="js-limit__value limit__value"></div>
-                    <div class="limit_value-change">
-                        <input type="number" id="js-limit_value-change" class="limit__change-btn--input">
+                    <div id="js-limit__value" class="limit__value"></div>
+                    <div id="js-limit_value-change-wrapper" class="limit_value-change displayNone">
+                        <input type="number" id="js-limit_value-change" class="limit__edit-btn--input">
                     </div>
-                    <button id="js-limit__change-btn" class="limit__change-btn"></button> 
+                    <button id="js-limit__edit-btn" class="limit__edit-btn"></button> 
+                    <button id="js-limit__confirm-btn" class="limit__confirm-btn displayNone"></button> 
+                    <button id="js-limit__cancel-btn" class="limit__cancel-btn displayNone"></button> 
                 </div>
                 <div class="total">
                     <div class="total__title">Всего: </div>

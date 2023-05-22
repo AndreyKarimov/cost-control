@@ -76,7 +76,7 @@ body {
 }
 
 .input__categoryInput:focus-visible, 
-.limit__change-btn--input:focus-visible,
+.limit__edit-btn--input:focus-visible,
 .input__sumInput:focus-visible {
     border: none;
     outline: none;
@@ -119,6 +119,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
     column-gap: 10px;
+    height: 32px;
 }
 .limit__title, .total__title,  .status__title, .history__title {
     font-weight: 700;
@@ -134,38 +135,56 @@ body {
     width: 150px;
     display: inline-block;
     text-align: left;
-
-    display: none;
 }
 
+
+
 .limit_value-change {
-    /* display: none; */
     width: 150px;
     display: flex;
     align-items: center;
     padding: 5px;
     text-align: left;
     border: 1px solid black;
+
 }
-.limit__change-btn--input {
+.limit__edit-btn--input {
     width: 100%;
     border: none;
     font-size: inherit;
 }
 
-.limit__change-btn {
-    width: 35px;
-    height: 35px;
+.limit__edit-btn, 
+.limit__confirm-btn, 
+.limit__cancel-btn  {
+    width: 32px;
+    height: 32px;
     border: none;
-    background-image: url(../resourses/changeLimit-btn.png);
     background-position: center;
     background-repeat: no-repeat;
     background-color: unset;
     cursor: pointer;
+    background-size: contain;
 }
-.limit__change-btn:active {
+.limit__edit-btn {
+    background-image: url(../resourses/changeLimit-btn.png);
+}
+
+.limit__confirm-btn {
+    background-image: url(../resourses/confirmLimit-btn.png);
+}
+.limit__cancel-btn {
+    background-image: url(../resourses/cancelLimit-btn.png);
+
+}
+
+.limit__edit-btn:active {
     transform: rotate(45deg);
     transition: transform 0.01s ease-in;
+}
+
+.displayNone {
+    display: none;
 }
 
 .green {
